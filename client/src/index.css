@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { color-scheme: dark; }
+  body { @apply bg-ink-900 text-mist-100 font-sans antialiased; min-height: 100vh;
+    background-image: radial-gradient(1200px 500px at 50% -10%, rgba(31,183,96,.10), transparent 60%); background-attachment: fixed; }
+  
+h1, h2, h3 {
+  @apply font-display;
+  letter-spacing: .005em;
+}
+
+  button { @apply cursor-pointer; }
+  :focus-visible { outline: 2px solid theme('colors.gold.400'); outline-offset: 2px; border-radius: 6px; }
+  ::selection { background: rgba(63,213,130,.35); }
+  input, select, textarea { @apply bg-ink-800 border border-ink-500 rounded-lg px-3 py-2 text-mist-100 placeholder:text-mist-500 w-full; }
+  input:focus, select:focus { @apply border-pitch-400 outline-none; }
+  table { @apply w-full border-collapse; }
+  th { @apply text-left font-medium text-mist-400 text-xs px-2 py-2; }
+  td { @apply px-2 py-2 text-sm; }
+  tbody tr { @apply border-t border-ink-600; }
+}
+
+@layer components {
+  .panel { @apply bg-ink-700 border border-ink-500/70 rounded-xl; }
+  .panel-pad { @apply panel p-4; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold text-sm transition-colors disabled:opacity-40 disabled:cursor-not-allowed select-none; }
+  .btn-primary { @apply btn bg-pitch-500 text-ink-950 hover:bg-pitch-400; }
+  .btn-gold { @apply btn bg-gold-500 text-ink-950 hover:bg-gold-400; }
+  .btn-ghost { @apply btn bg-ink-600 text-mist-100 hover:bg-ink-500; }
+  .btn-danger { @apply btn bg-alert-500/15 text-alert-400 hover:bg-alert-500/25 border border-alert-500/40; }
+  .btn-lg { @apply px-6 py-3 text-base; }
+  .chip { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-ink-600 text-mist-300; }
+  .num { @apply font-display tabular-nums; }
+  .muted { @apply text-mist-400; }
+  .h-page { @apply text-3xl sm:text-4xl font-bold; }
+  .scroll-thin { scrollbar-width: thin; scrollbar-color: #1d2e4d transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
